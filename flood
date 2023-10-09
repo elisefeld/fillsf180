@@ -1,0 +1,85 @@
+import fillpdf
+
+import csv
+from fillpdf import fillpdfs
+
+n = 0
+
+with open('NoahFlood.csv', newline='') as csvfile:
+    # edit to name of csv file
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        n += 1
+
+        data_dict = {'VetName': row['VetName'],
+        'SSN': row['SSN'],
+        'BirthDate': row['BirthDate'],
+        'BirthPlace': row['BirthPlace'],
+        'ActiveServiceType': row['ActiveServiceType'],
+        'ActiveEnterDate': row['ActiveEnterDate'],
+        'ActiveReleaseDate': row['ActiveReleaseDate'],
+        'IsActiveOfficer': row['IsActiveOfficer'],
+        'IsActiveEnlisted': row['IsActiveEnlisted'],
+        'ActiveServiceNum': row['ActiveServiceNum'],
+        'ReserveServiceType': row['ReserveServiceType'],
+        'ReserveEnterDate': row['ReserveEnterDate'],
+        'ReserveReleaseDate': row['ReserveReleaseDate'],
+        'IsReserveOfficer': row['IsReserveOfficer'],
+        'IsReserveEnlisted': row['IsReserveEnlisted'],
+        'ReserveServiceNum': row['ReserveServiceNum'],
+        'GuardServiceType': row['GuardServiceType'],
+        'GuardEnterDate': row['GuardEnterDate'],
+        'GuardReleaseDate': row['GuardReleaseDate'],
+        'IsGuardOfficer': row['IsGuardOfficer'],
+        'IsGuardEnlisted': row['IsGuardEnlisted'],
+        'GuardServiceNum': row['GuardServiceNum'],
+        'Station1': row['Station1'],
+        'Station2': row['Station2'],
+        'Station3': row['Station3'],
+        'Station4': row['Station4'],
+        'IsAlive': row['IsAlive'],
+        'IsDeceased': row['IsDeceased'],
+        'DeathDate': row['DeathDate'],
+        'IsUnretired': row['IsUnretired'],
+        'IsRetired': row['IsRetired'],
+        'IsDD214': row['IsDD214'],
+        'SeparationDate': row['SeparationDate'],
+        'IsDeleted': row['IsDeleted'],
+        'IsOMPF': row['IsOMPF'],
+        'IsMedicalRecs': row['IsMedicalRecs'],
+        'IsHospitalRecs': row['IsHospitalRecs'],
+        'Facility': row['Facility'],
+        'YearTreated': row['YearTreated'],
+        'IsDentalOnly': row['IsDentalOnly'],
+        'IsOtherRecs': row['IsOtherRecs'],
+        'ExplainOther': row['ExplainOther'],
+        'PurposeIsBenefits': row['PurposeIsBenefits'],
+        'PurposeIsEmployment': row['PurposeIsEmployment'],
+        'PurposeIsVALoan': row['PurposeIsVALoan'],
+        'PurposeIsMedical': row['PurposeIsMedical'],
+        'PurposeIsGenealogy': row['PurposeIsGenealogy'],
+        'PurposeIsCorrection': row['PurposeIsCorrection'],
+        'PurposeIsPersonal': row['PurposeIsPersonal'],
+        'PurposeIsOther': row['PurposeIsOther'],
+        'ExplainPurpose': row['ExplainPurpose'],
+        'RequestorName': row['RequestorName'],
+        'Relationship': row['Relationship'],
+        'IsVeteran': row['IsVeteran'],
+        'IsNOK': row['IsNOK'],
+        'IsGuardian': row['IsGuardian'],
+        'IsOtherRelation': row['IsOtherRelation'],
+        'ExplainRelationship': row['ExplainRelationship'],
+        'MailingName': row['MailingName'],
+        'Address': row['Address'],
+        'Apt': row['Apt'],
+        'State': row['State'],
+        'City': row['City'],
+        'ZIP': row['ZIP'],
+        'Phone': row['Phone'],
+        'Fax': row['Fax'],
+        'Signature': row['Signature'],
+        'Date': row['Date'],
+        'Email': row['Email'],
+        }
+
+        fillpdfs.write_fillable_pdf('sf180p2.pdf', row['VetName'] + '.pdf', data_dict)
